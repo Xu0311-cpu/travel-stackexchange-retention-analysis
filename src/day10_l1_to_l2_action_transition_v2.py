@@ -8,9 +8,10 @@ import pandas as pd
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA_PATH = os.path.join(PROJECT_ROOT, "data", "toy_events.csv")
 
-OUT_SUMMARY = os.path.join(PROJECT_ROOT, "data", "day10_l1_to_l2_transition_v2_summary.csv")
+OUT_SUMMARY_1D = os.path.join(PROJECT_ROOT, "data", "day10_l1_to_l2_transition_v2_summary_1d.csv")
+OUT_SUMMARY_3D = os.path.join(PROJECT_ROOT, "data", "day10_l1_to_l2_transition_v2_summary_3d.csv")
 OUT_DETAIL = os.path.join(PROJECT_ROOT, "data", "day10_l1_to_l2_transition_v2_detail.csv")
-OUT_REPORT = os.path.join(PROJECT_ROOT, "data", "day10_l1_to_l2_transition_v2_report.md")
+OUT_REPORT = os.path.join(PROJECT_ROOT, "notes", "Day10.md")
 
 TRAVEL = "travel"
 
@@ -217,8 +218,8 @@ def main():
     s1 = cluster_bootstrap_ci(out, "upgraded_to_L2_within_1d")
     s3 = cluster_bootstrap_ci(out, "upgraded_to_L2_within_3d")
 
-    s1.to_csv(OUT_SUMMARY.replace(".csv", "_1d.csv"), index=False)
-    s3.to_csv(OUT_SUMMARY.replace(".csv", "_3d.csv"), index=False)
+    s1.to_csv(OUT_SUMMARY_1D, index=False)
+    s3.to_csv(OUT_SUMMARY_3D, index=False)
 
     # 报告
     report = render_report(out, s1, s3)
@@ -226,8 +227,8 @@ def main():
         f.write(report)
 
     print("[OK] Saved detail:", OUT_DETAIL)
-    print("[OK] Saved summary (1d):", OUT_SUMMARY.replace(".csv", "_1d.csv"))
-    print("[OK] Saved summary (3d):", OUT_SUMMARY.replace(".csv", "_3d.csv"))
+    print("[OK] Saved summary (1d):", OUT_SUMMARY_1D)
+    print("[OK] Saved summary (3d):", OUT_SUMMARY_3D)
     print("[OK] Saved report:", OUT_REPORT)
 
     print("\n=== Top lines (1d) ===")
