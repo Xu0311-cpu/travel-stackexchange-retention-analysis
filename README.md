@@ -1,10 +1,39 @@
 # Community Retention & Behavioral Depth Analysis on Travel Stack Exchange
 
-A real-world community analytics project built on public behavioral data from Travel Stack Exchange to study how **community scale**, **short-term retention**, and **participation depth** interact over time.
+A real-world community analytics project using public behavioral data from Travel Stack Exchange to study how **community scale**, **short-term retention**, and **participation depth** interact over time.
 
 ## Executive Summary
 
-Using **414,791 real events**, **40,600 users**, and **214,923 user-days** from **2011 to 2024**, this project analyzed how user behavior quality relates to retention in a knowledge-sharing community.
+Using **414,791 real events**, **40,600 users**, and **214,923 user-days** from **2011 to 2024**, this project found that:
+
+- **community growth and user stickiness did not peak at the same time**
+- **answer-oriented contribution showed the strongest next-day retention (~42%)**
+- this retention advantage remained **stable under confidence intervals and cross-stage comparison**
+
+> **Community quality should not be measured only by activity scale, but also by the depth and type of participation behind that activity.**
+
+---
+
+## Key Highlights
+
+- **Scale vs. stickiness diverged**: peak MAU, peak DAU, and peak D1 retention occurred in different periods
+- **Behavior mattered**: `answer_user_day` retained at **42.0%**, vs **26.5%** for `comment_only_user_day` and **22.6%** for `question_user_day`
+- **The pattern held across stages**: answer behavior remained the highest-retention segment in early, middle, and late community stages
+
+---
+
+## Featured Visuals
+
+### 1. Monthly Activity Structure
+![Monthly activity structure](figures/day16_real_monthly_metrics.png)
+
+### 2. Action-Level Retention with Confidence Intervals
+![Action retention with CI](figures/day18_real_action_retention_with_ci.png)
+
+### 3. Retention by Community Stage
+![Retention by stage](figures/day19_real_action_retention_by_stage.png)
+
+---
 
 The project found that:
 
