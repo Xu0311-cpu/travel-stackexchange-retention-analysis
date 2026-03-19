@@ -1,7 +1,10 @@
+.venv/
 __pycache__/
 .ipynb_checkpoints/
 *.pyc
 .env
-data/
 .DS_Store
 package-lock.json
+
+# ignore raw downloaded data only
+data/travel_stackexchange_raw/
