@@ -26,24 +26,28 @@ Using **414,791 real events**, **40,600 users**, and **214,923 user-days** from 
 
 ### 1. Monthly Activity Structure
 ![Monthly activity structure](figures/day16_real_monthly_metrics.png)
+*This chart shows that community scale and retention did not peak at the same time: MAU peaked in 2019, while monthly average D1 retention peaked much earlier.*
 
 ### 2. Action-Level Retention with Confidence Intervals
 ![Action retention with CI](figures/day18_real_action_retention_with_ci.png)
+*This chart shows that answer-oriented contribution had the highest D1 retention, and that the gap remained stable under narrow confidence intervals.*
 
 ### 3. Retention by Community Stage
 ![Retention by stage](figures/day19_real_action_retention_by_stage.png)
+*This chart shows that the retention advantage of answer-related behavior remained visible across early, middle, and late community stages.*
 
 ---
 
-The project found that:
+## Data Source
 
-- **community growth and user stickiness did not peak at the same time**
-- **answer-oriented contribution had the strongest next-day retention (~42%)**
-- this retention advantage remained **stable across large base sizes, bootstrap confidence intervals, and early/middle/late community stages**
-
-The core insight is:
-
-> **Community quality should not be measured only by activity scale, but also by the depth and type of participation behind that activity.**
+- **Platform:** [Travel Stack Exchange](https://travel.stackexchange.com/)
+- **Download:** [Stack Exchange Data Dump (Internet Archive)](https://archive.org/details/stackexchange)
+- **Raw format:** XML
+- **Core files used:**
+  - `Posts.xml`
+  - `Comments.xml`
+  - `Users.xml`
+- **Time range:** 2011-06-21 to 2024-03-31
 
 ---
 
@@ -72,6 +76,39 @@ This project focuses on four questions:
 - `comment`
 
 ---
+## How to Reproduce
+
+### Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Prepare raw data
+
+Download the Travel Stack Exchange dump from the data source above, extract the archive, and place the XML files under:
+
+```text
+data/travel_stackexchange_raw/
+```
+
+Expected files:
+- `Posts.xml`
+- `Comments.xml`
+- `Users.xml`
+
+### Run the real-data workflow
+
+From the project root:
+
+```bash
+python src/day14_build_real_travel_user_day.py
+python src/day15_real_dau_and_d1_retention.py
+python src/day16_real_time_series_structure.py
+python src/day17_real_retention_by_action.py
+python src/day18_real_action_retention_stability.py
+python src/day19_real_action_retention_by_stage.py
+```
 
 ## Analytical Workflow
 
@@ -141,6 +178,25 @@ Across all three stages, `answer_user_day` remained the highest-retention behavi
 
 ---
 
+## Actionable Insights
+
+If this community were managed as a product, the findings suggest several practical directions:
+
+1. **Prioritize contributor retention, not just total activity**
+   - The strongest short-term retention comes from answer-oriented contribution, not from overall activity volume alone.
+
+2. **Design incentives for first-time or early answerers**
+   - Answer-related participation appears to align with higher-quality retention.
+   - Product teams could test badges, recognition systems, or contributor nudges aimed at users who show early answer behavior.
+
+3. **Track retained contributors as a health metric**
+   - Peak MAU and peak retention did not coincide.
+   - This suggests teams should track not only total active users, but also retained high-value contributors.
+
+4. **Differentiate demand-side and supply-side behaviors**
+   - Asking questions and answering questions likely reflect different user roles and lifecycle positions.
+   - Product decisions should avoid treating all activity as equally valuable.
+
 ## Business Interpretation
 
 If Travel Stack Exchange is viewed as a community product, this project suggests:
@@ -158,9 +214,23 @@ If Travel Stack Exchange is viewed as a community product, this project suggests
 
 ```text
 community_retention/
-├── data/       # processed datasets and outputs
-├── figures/    # exported charts
-├── notes/      # analysis notes and delivery documents
-├── src/        # analysis scripts
+├── data/              # processed datasets and outputs
+├── figures/           # exported charts
+├── notes/             # analysis notes and delivery documents
+├── src/               # analysis scripts
 ├── .gitignore
+├── requirements.txt
 └── README.md
+
+```
+## Limitations
+
+This is still an observational project, so the findings should be interpreted carefully.
+
+Key limitations include:
+
+- no direct view or impression logs are available in the public dump
+- behavior-retention relationships are correlational, not causal
+- answer-oriented users may systematically differ from question-oriented users in **tenure, familiarity, contribution readiness, or historical engagement level**
+- therefore, the relationship between action type and retention should be interpreted as **associational rather than causal**
+- stage definitions are analytically useful but manually defined
