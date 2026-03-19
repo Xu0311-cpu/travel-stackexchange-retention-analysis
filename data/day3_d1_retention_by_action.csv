@@ -1,0 +1,5 @@
+action,avg_d1_retention,n_days
+post,0.345,19
+comment,0.269,20
+like,0.259,20
+view,0.248,20

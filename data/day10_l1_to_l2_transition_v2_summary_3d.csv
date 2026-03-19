@@ -1,0 +1,5 @@
+first_action,l1_user_days,l1_users,upgraded,upgrade_rate,ci_low,ci_high
+like,23,20,3,0.15,0.0,0.5
+view,91,56,8,0.14285714285714285,0.08823529411764706,0.38235294117647056
+comment,23,21,0,0.0,0.0,0.0
+post,4,4,0,0.0,0.0,0.0

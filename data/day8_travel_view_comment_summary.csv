@@ -1,0 +1,4 @@
+group,total_base,total_returned,agg_rate,lift_agg,ratio_agg
+view_only,128,18,0.140625,,
+view_comment,13,4,0.3076923076923077,,
+comparison,141,22,,0.1670673076923077,2.1880341880341883

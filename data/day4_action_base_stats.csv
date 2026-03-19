@@ -1,0 +1,5 @@
+action,avg_base,median_base,min_base,max_base,avg_d1,days,days_base_lt5,days_base_lt10
+comment,9.4,9.0,5,15,0.2694,20,0,13
+like,12.55,11.5,8,22,0.25855,20,0,4
+post,4.0,4.0,1,8,0.3451578947368421,19,11,19
+view,17.75,17.5,12,27,0.24785,20,0,0

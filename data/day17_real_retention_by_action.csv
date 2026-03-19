@@ -1,0 +1,4 @@
+action_segment,base_users,retained_users,d1_retention
+answer_user_day,58509,24601,0.4204652275718266
+comment_only_user_day,113682,30134,0.2650727467848912
+question_user_day,42732,9645,0.2257090704858186

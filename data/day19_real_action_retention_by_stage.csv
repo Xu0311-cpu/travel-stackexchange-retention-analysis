@@ -1,0 +1,10 @@
+stage,action_segment,base_users,retained_users,d1_retention
+early_stage,answer_user_day,12703,5069,0.3990395969456034
+early_stage,comment_only_user_day,15186,4305,0.2834847886210984
+early_stage,question_user_day,7119,1985,0.27883129653041155
+late_stage,answer_user_day,11715,4717,0.40264618011096887
+late_stage,comment_only_user_day,32221,7928,0.2460507122683964
+late_stage,question_user_day,8541,2118,0.247980330172111
+middle_stage,answer_user_day,34091,14815,0.4345721744742014
+middle_stage,comment_only_user_day,66275,17901,0.2701018483591098
+middle_stage,question_user_day,27072,5542,0.20471335697399526
